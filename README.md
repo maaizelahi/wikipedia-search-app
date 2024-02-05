@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# Wikipedia Search and Analysis Tool - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the Wikipedia Search and Analysis Tool, built with React.js.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The goal of this project is to provide a minimalistic, single-page React application that efficiently searches and presents Wikipedia results. The emphasis is on swift performance and secure interactions.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **User authentication:** Signup, Login and Logout
+- **Wikipedia Search:** Utilize the Wikipedia API to search for articles.
+- **Relevance-Based Sorting:** Display search results with relevance-based sorting.
+- **Virtualized Lists:** Employ virtualized lists for improved performance.
+- **Search History:** Keep track of user search history for authenticated users
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+```bash
+git clone <frontend-repository-url>
+cd wikipedia-search-frontend
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the frontend repository:
 
-### `npm run build`
+   ```bash
+   git clone git@github.com:maaizelahi/wikipedia-search-app.git
+   cd wikipedia-search-app
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Run the server:
 
-### `npm run eject`
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   The server will be running on http://localhost:3000 by default.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open your browser and visit http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- src/components: Contains React components.
+- src/services: Includes service files for API interactions.
+- src/contexts: Contains contexts
+- src/utils: Houses utility functions.
+- src/tests: Stores test files.
 
-## Learn More
+## Performance Optimization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Applied input debouncing to reduce search latency.
+- Employed virtualized lists for improved rendering performance.
+- Have Paginated API's
+- Used react useMemo and useCallback hooks where ever possible for optimization
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Security
+
+- User Authentication
+- Wikipedia search snippet sanitization
+- Input validation and sanitization.
+
+## Testing
+
+```bash
+npm run test
+
+```
+
+Test cases need to be added
+
+## Author
+
+Maaiz Elahi

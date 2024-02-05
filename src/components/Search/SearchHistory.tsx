@@ -16,7 +16,7 @@ const SearchHistory: React.FC = () => {
     const fetchHistory = async () => {
       try {
         // TODO: Implement pagination
-        const response = await getSearchHistory(10, 0);
+        const response = await getSearchHistory(50, 0);
         console.log("Search history:", response);
         setHistory(response);
       } catch (error) {
