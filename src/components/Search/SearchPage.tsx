@@ -11,11 +11,7 @@ const SearchPage: React.FC = () => {
 
   const handleSearch = async (query: string, limit = 10, offset = 0) => {
     try {
-      const response = await searchWithPagination(query, limit, offset);
-      setSearchResults(response.query.search);
-      setCurrentQuery(query); // Update the current query
-      console.log("Search results:", response);
-      // Update state with search results
+      setCurrentQuery(query);
     } catch (error) {
       console.error("Search error:", error);
     }

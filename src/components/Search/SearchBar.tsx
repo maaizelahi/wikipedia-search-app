@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { debounce } from "lodash";
-import { searchWithPagination } from "../../services/searchService";
 
 interface SearchBarProps {
   handleSearch: (query: string) => void;
@@ -9,14 +8,25 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ handleSearch }) => {
   const [query, setQuery] = useState("");
 
-  // Debounce the handleSearch function with a 300 milliseconds delay
-  const handleSearchDebounced = debounce(handleSearch, 300);
+  const handleSearchDebounced = useCallback(
+    debounce((value: string) => {
+      handleSearch(value);
+    }, 300),
+    []
+  );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setQuery(value);
     handleSearchDebounced(value);
   };
+
+  // Cleanup the debounced function when the component unmounts
+  React.useEffect(() => {
+    return () => {
+      handleSearchDebounced.cancel();
+    };
+  }, [handleSearchDebounced]);
 
   return (
     <div className="flex justify-center items-center m-8">
